@@ -1,0 +1,285 @@
+/* Shared identity: the supplied logo and the site's display typography. */
+.club-logo {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 180px;
+  height: 64px;
+  overflow: hidden;
+  background: #fff;
+  letter-spacing: normal;
+}
+.club-logo .club-logo-image {
+  position: absolute;
+  top: -16%;
+  left: -14%;
+  width: 134%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border-radius: 0;
+  object-fit: contain;
+}
+.footer-brand.club-logo { border-radius: 8px; }
+.site-header { height: 88px; background: #fff; border-color: #ede7fa; }
+.site-header .nav-wrap { width: min(1440px, calc(100% - 64px)); gap: 24px; }
+.site-header .brand.club-logo { width: 136px; height: 49px; }
+.site-header .brand .code-hack-logo { width: 130%; top: -14%; left: -4%; }
+.site-header .site-nav { display: flex; position: static; flex-direction: row; align-items: center; gap: 8px; margin: 0 auto; padding: 0; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.site-header .menu-toggle, .site-header .mobile-nav-actions { display: none; }
+.site-header .site-nav > a {
+  position: relative;
+  padding: 11px 10px;
+  border-radius: 12px;
+  color: var(--ink);
+  font: 700 14px/1.3 'Space Mono', monospace;
+  transition: color 180ms ease;
+}
+.site-header .site-nav > a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 240ms cubic-bezier(.16, 1, .3, 1);
+}
+.site-header .site-nav > a:hover,
+.site-header .site-nav > a:focus-visible { color: var(--purple); background: transparent; }
+.site-header .site-nav > a:hover::after,
+.site-header .site-nav > a:focus-visible::after { transform: scaleX(1); }
+.site-header .header-actions { display: flex; margin-left: 0; }
+.site-header .header-contact {
+  min-height: 52px;
+  padding: 0 22px;
+  border-radius: 16px;
+  background: var(--purple);
+  color: #fff;
+  font: 700 14px/1.3 'DM Sans', sans-serif;
+  box-shadow: none;
+}
+.site-header .header-contact:hover { background: #43209d; box-shadow: 0 8px 20px #2510671a; }
+
+/* A flat, colorful campaign with a clear space reserved for its message. */
+.hero {
+  background-color: #fff;
+  background-image:
+    linear-gradient(#f0edf7 1px, transparent 1px),
+    linear-gradient(90deg, #f0edf7 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+  color: #1d1048;
+}
+.hero::before { content: none; }
+.hero .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 660px) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  min-height: 710px;
+  padding-block: 64px 72px;
+}
+.hero .hero-copy { grid-column: 2; grid-row: 1; width: 100%; padding: 0; }
+.hero .hero-meta { color: #1d1048; text-shadow: none; font-size: 13px; margin-bottom: 32px; }
+.hero .live-dot { background: #251067; box-shadow: 0 0 0 5px #25106714; }
+.hero h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(64px, 5.6vw, 96px);
+  font-weight: 900;
+  line-height: 1.03;
+  letter-spacing: -.04em;
+  color: var(--ink);
+  text-shadow: none;
+  margin: 0 0 28px;
+}
+.hero h1 em {
+  display: inline-block;
+  padding: 0 .09em .045em;
+  margin-left: -.09em;
+  border-radius: 15px;
+  background: var(--lime);
+  color: var(--ink);
+  line-height: .94;
+}
+.hero h1 span { color: var(--purple); }
+.hero .hero-lede { max-width: 480px; color: #1d1048; font-size: 18px; font-weight: 500; line-height: 1.55; text-shadow: none; }
+.hero .hero-actions { justify-content: center; margin: 30px 0 0; }
+.hero-countdown { width: min(100%, 320px); margin: 22px auto 0; }
+.hero-countdown > p { margin: 0 0 9px; color: var(--body); font-size: 12px; line-height: 1.4; }
+.countdown-clock { display: flex; justify-content: center; align-items: flex-start; gap: 12px; }
+.countdown-clock > div { min-width: 44px; display: flex; flex-direction: column; gap: 4px; }
+.countdown-clock span { font: 700 30px/1.1 'Space Mono', monospace; font-variant-numeric: tabular-nums; color: var(--ink); }
+.countdown-clock small { color: var(--body); font-size: 11px; line-height: 1.4; }
+.countdown-clock b { color: #a18bc9; font: 400 24px/1.2 'Space Mono', monospace; }
+.hero .button-primary { min-height: 60px; background: var(--ink); color: #fff; box-shadow: none; }
+.hero .button-primary:hover { background: #351478; box-shadow: 0 12px 24px #25106726; }
+.campaign-art { min-width: 0; width: 100%; max-width: 290px; justify-self: center; pointer-events: none; }
+.campaign-art svg { display: block; width: 100%; height: auto; overflow: visible; }
+.campaign-orbit { stroke: #cabbeb; }
+.campaign-rays { stroke: var(--violet); }
+.campaign-art-left { grid-column: 1; grid-row: 1; transform: translate3d(var(--hero-left-x, 0px), var(--hero-left-y, 0px), 0); }
+.campaign-art-right { grid-column: 3; grid-row: 1; transform: translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0); }
+.campaign-art.campaign-trophy { width: calc(100% + 30px); max-width: 340px; }
+.campaign-trophy-image { display: block; width: 100%; height: auto; object-fit: contain; animation: illustration-float 7s ease-in-out infinite; }
+.campaign-art { transition: transform 500ms cubic-bezier(.16, 1, .3, 1); }
+.campaign-motion, .campaign-spark { transform-box: fill-box; transform-origin: center; }
+.campaign-bloom { animation: campaign-sway 7s ease-in-out infinite; }
+.campaign-arrow { animation: campaign-sway 7s ease-in-out -3.5s infinite reverse; }
+.campaign-spark { transition: transform 650ms cubic-bezier(.16, 1, .3, 1); }
+.hero.hero-burst .campaign-spark { transform: rotate(35deg) scale(1.12); }
+.hero.is-paused .campaign-motion { animation-play-state: paused; }
+@keyframes campaign-sway { 50% { transform: translateY(-9px) rotate(4deg); } }
+@keyframes illustration-float { 50% { transform: translateY(-8px) rotate(1.5deg); } }
+
+.prize { background: #fff; }
+.prize-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); align-items: center; gap: 64px; }
+.prize h2 { font-size: clamp(44px, 5.5vw, 72px); line-height: 1.06; letter-spacing: -.04em; margin: 0 0 24px; }
+.prize h2 span { color: var(--purple); }
+.prize-copy p { max-width: 520px; font-size: 22px; line-height: 1.55; color: var(--body); margin: 0; }
+.prize-copy strong { color: var(--ink); }
+.prize-art { width: min(100%, 360px); justify-self: center; }
+.prize-art svg { display: block; width: 100%; height: auto; }
+
+
+.practical-grid { align-items: start; }
+.venue-address { margin: 0 0 16px; font-style: normal; font-size: 15px; line-height: 1.55; color: var(--ink); }
+.venue-map { height: 230px; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: #f8f6ff; }
+.venue-map iframe { display: block; width: 100%; height: 100%; border: 0; }
+.venue-map-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: var(--purple); font-size: 14px; font-weight: 700; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.venue-map-link svg { width: 18px; height: 18px; }
+
+/* The labels above each judging title are intentionally omitted. */
+.judge-card-top { justify-content: flex-end; }
+
+/* The journey opens onto a white surface. */
+.journey { background: #fff; color: var(--ink); }
+.journey .section-heading h2 { color: var(--ink); }
+.journey .section-heading h2 span { color: var(--purple); }
+.journey .section-heading p { color: var(--body); }
+.journey .step { color: #fff; }
+.journey .step:nth-child(2) { background: #7139d2; }
+.journey .schedule-note { background: #f8f6ff; border-color: var(--line); color: var(--ink); }
+.journey .schedule-note p { color: var(--body); }
+.journey .schedule-note strong { color: var(--ink); }
+.journey .schedule-note a { color: var(--purple); }
+
+/* Clear site navigation closes the page. */
+.footer { background: #fff; color: var(--ink); border-top: 1px solid var(--line); }
+.footer .footer-main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, 520px); align-items: start; gap: 64px; padding-block: 52px; }
+.footer .footer-main p { color: var(--body); max-width: 320px; line-height: 1.6; }
+.footer .footer-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 19px 24px; margin: 8px 0 0; }
+.footer .footer-links a { color: var(--ink); font: 700 13px/1.5 'Space Mono', monospace; text-underline-offset: 5px; }
+.footer .footer-links a:hover { color: var(--purple); text-decoration: underline; text-decoration-color: var(--green); }
+.footer .footer-bottom { border-color: var(--line); padding-block: 22px; color: var(--body); font-size: 12px; align-items: center; }
+.footer .footer-bottom a { color: var(--purple); font-size: 12px; }
+
+.site-header .header-contact,
+.hero .button-primary,
+.audience .button-primary {
+  background: linear-gradient(110deg, #7656dd, #00865d);
+  background-size: 100% 100%;
+  background-position: left center;
+  color: #fff;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.site-header .header-contact:hover,
+.hero .button-primary:hover,
+.audience .button-primary:hover {
+  background-image: linear-gradient(110deg, #7656dd, #00865d);
+  background-color: #00865d;
+  background-size: 100% 100%;
+  background-position: right center;
+  box-shadow: 0 10px 22px #35206724;
+}
+
+.button span, .venue-map-link svg { transition: transform 250ms cubic-bezier(.16, 1, .3, 1); }
+.campaign-art { pointer-events: auto; }
+.campaign-art svg, .prize-art svg { transition: transform 450ms cubic-bezier(.16, 1, .3, 1), filter 350ms ease; transform-origin: 50% 70%; }
+.campaign-trophy-image { transition: filter 350ms ease; }
+.partner-brand > img, .partner-brand .club-logo { transition: transform 300ms cubic-bezier(.16, 1, .3, 1); }
+.faq summary { transition: color 180ms ease; }
+.faq summary span { transition: transform 300ms cubic-bezier(.16, 1, .3, 1), background-color 200ms ease; }
+.faq details[open] > p { animation: faq-answer-in 220ms ease-out; }
+@keyframes faq-answer-in { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: none; } }
+body.motion-ready .motion-card.motion-visible { transition: opacity 650ms ease, transform 350ms cubic-bezier(.16, 1, .3, 1), clip-path 650ms ease, box-shadow 350ms ease, filter 200ms ease; transition-delay: 0ms; }
+@media (hover: hover) and (pointer: fine) {
+  body.motion-ready .motion-card.motion-visible:not(.venue-panel):hover { transform: translateY(-6px); box-shadow: 0 16px 28px #25106722; }
+  .button:hover span, .button:focus-visible span, .venue-map-link:hover svg { transform: translate(3px, -3px); }
+  .campaign-art-right:hover svg { transform: rotate(-4deg) scale(1.035); }
+  .campaign-trophy:hover .campaign-trophy-image { filter: drop-shadow(0 12px 10px #25106726); }
+  .prize-art:hover svg { transform: translateY(-5px) rotate(-4deg); filter: drop-shadow(0 12px 10px #25106720); }
+  .partner-brand:hover > img, .partner-brand:hover .club-logo { transform: translateY(-4px) scale(1.035); }
+  .faq summary:hover { color: var(--purple); }
+  .faq details:not([open]) summary:hover span { transform: rotate(90deg); background: var(--pink); }
+}
+
+@media (max-width: 1200px) {
+  .site-header .nav-wrap { gap: 14px; }
+  .site-header .site-nav > a { padding-inline: 9px; font-size: 13px; }
+  .site-header .header-contact { padding-inline: 18px; }
+}
+@media (max-width: 900px) {
+  .site-header { height: 72px; }
+  .site-header .brand.club-logo { width: 124px; height: 44px; }
+  .site-header .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; width: 42px; height: 42px; margin-left: auto; padding: 12px 10px; border-radius: 12px; background: #f1ebff; }
+  .site-header .site-nav { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 3px; margin: 0; padding: 18px 24px 24px; border-bottom: 1px solid var(--line); border-radius: 0 0 24px 24px; background: #fff; box-shadow: 0 18px 28px #25106714; }
+  .site-header .site-nav.is-open { display: flex; }
+  .site-header .site-nav > a { padding: 12px; font-size: 16px; }
+  .site-header .header-actions { display: none; }
+  .site-header .mobile-nav-actions { display: flex; padding-top: 16px; margin-top: 10px; }
+  .site-header .mobile-nav-actions .header-contact { color: #fff; font-family: 'DM Sans', sans-serif; width: 100%; }
+}
+@media (max-width: 1000px) {
+  .hero .hero-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); min-height: 0; gap: 25px 32px; padding-block: 48px 28px; }
+  .hero .hero-copy { grid-column: 1 / -1; grid-row: 1; }
+  .hero h1 { font-size: clamp(52px, 8vw, 76px); }
+  .hero .hero-lede { max-width: 500px; }
+  .campaign-art { max-width: 185px; }
+  .campaign-art-left { grid-column: 1; grid-row: 2; justify-self: end; }
+  .campaign-art-right { grid-column: 2; grid-row: 2; justify-self: start; }
+  .campaign-art.campaign-trophy { width: 100%; max-width: 200px; }
+}
+@media (max-width: 760px) {
+  .audience-passes.is-auto-carousel { position: relative; padding-inline: var(--pass-edge, 20px); scroll-behavior: auto; overflow-anchor: none; scrollbar-width: none; }
+  .audience-passes.is-auto-carousel::-webkit-scrollbar { display: none; }
+  .audience-carousel-slide { flex: 0 0 185px; height: 326px; scroll-snap-align: center; }
+  .is-auto-carousel .audience-pass { width: 185px; scroll-snap-align: none; }
+  .site-header .nav-wrap { width: calc(100% - 34px); }
+  .hero .hero-grid { width: min(100% - 34px, 560px); gap: 24px; padding-block: 42px 24px; }
+  .hero .hero-meta { margin-bottom: 25px; font-size: 12px; }
+  .hero h1 { font-size: clamp(42px, 10.5vw, 64px); line-height: 1.06; margin-bottom: 22px; }
+  .hero h1 em { border-radius: 10px; }
+  .hero .hero-lede { max-width: 370px; font-size: 16px; }
+  .hero .hero-actions { margin-top: 24px; }
+  .hero-countdown { margin-top: 20px; }
+  .countdown-clock span { font-size: 28px; }
+  .venue-map { height: 210px; }
+  .hero .button-primary { min-height: 56px; font-size: 16px; }
+  .campaign-art { width: min(100%, 160px); }
+  .campaign-art.campaign-trophy { max-width: 175px; }
+  .prize-grid { grid-template-columns: 1fr; gap: 28px; }
+  .prize h2 { font-size: clamp(40px, 9vw, 54px); }
+  .prize-copy p { font-size: 19px; }
+  .prize-art { max-width: 260px; }
+  .footer .footer-main { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+  .footer .footer-links { gap: 18px 12px; }
+  .footer .footer-links a { font-size: 12px; }
+  .footer .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq details[open] > p { animation: none; }
+  .button span, .venue-map-link svg, .campaign-art svg, .prize-art svg, .campaign-trophy-image, .partner-brand > img, .partner-brand .club-logo, .faq summary span { transition: none; }
+  body.motion-ready .motion-card.motion-visible:not(.venue-panel):hover, .button:hover span, .button:focus-visible span, .venue-map-link:hover svg, .campaign-art-right:hover svg, .prize-art:hover svg, .partner-brand:hover > img, .partner-brand:hover .club-logo { transform: none; }
+  .site-header .header-contact, .hero .button-primary, .audience .button-primary { transition: none; }
+  .site-header .site-nav > a::after { transition: none; }
+  .campaign-motion { animation: none; }
+  .campaign-art, .campaign-spark { transform: none; transition: none; }
+  .hero.hero-burst .campaign-spark { transform: none; }
+}
