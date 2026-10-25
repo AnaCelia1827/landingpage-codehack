@@ -24,7 +24,7 @@ Datas, formulário, endereço operacional, credenciamento, alimentação e mater
 Nome Code Hack e organização Code Club. Referências visuais enviadas pelo usuário combinam cores fortes, formas orgânicas, mosaicos e elementos de jogos. Guia visual enviado indica verde, roxo, azul escuro e fundo claro.
 
 ## Evidence on Hand
-Regulamento interno e TAP fornecidos na conversa. Não foram fornecidos fotografias originais, logotipos em arquivo, datas ou URL de inscrição.
+Regulamento interno e TAP fornecidos na conversa. As versões de marca do Inteli e da IBM escolhidas pelo usuário estão em `assets/`, com as fontes registradas em `assets/SOURCES.md`. A marca Code Club foi reproduzida em HTML/CSS a partir da imagem de referência enviada. Não foram fornecidos fotografias originais, datas ou URL de inscrição.
 
 ## Product Principles
 - Explicar o desafio e o caminho de participação rapidamente.
