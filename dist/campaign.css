@@ -112,7 +112,6 @@
 .hero .hero-lede { max-width: 480px; color: #1d1048; font-size: 18px; font-weight: 500; line-height: 1.55; text-shadow: none; }
 .hero .hero-actions { justify-content: center; margin: 30px 0 0; }
 .hero-countdown { width: min(100%, 320px); margin: 22px auto 0; }
-.hero-countdown > p { margin: 0 0 9px; color: var(--body); font-size: 12px; line-height: 1.4; }
 .countdown-clock { display: flex; justify-content: center; align-items: flex-start; gap: 12px; }
 .countdown-clock > div { min-width: 44px; display: flex; flex-direction: column; gap: 4px; }
 .countdown-clock span { font: 700 30px/1.1 'Space Mono', monospace; font-variant-numeric: tabular-nums; color: var(--ink); }
@@ -126,8 +125,8 @@
 .campaign-rays { stroke: var(--violet); }
 .campaign-art-left { grid-column: 1; grid-row: 1; transform: translate3d(var(--hero-left-x, 0px), var(--hero-left-y, 0px), 0); }
 .campaign-art-right { grid-column: 3; grid-row: 1; transform: translate3d(var(--hero-x, 0px), var(--hero-y, 0px), 0); }
-.campaign-art.campaign-trophy { width: calc(100% + 30px); max-width: 340px; }
-.campaign-trophy-image { display: block; width: 100%; height: auto; object-fit: contain; animation: illustration-float 7s ease-in-out infinite; }
+.campaign-art.campaign-mascot { width: calc(100% + 30px); max-width: 340px; animation: mascot-arrive 750ms cubic-bezier(.16, 1, .3, 1) both; }
+.hero-mascot-image { display: block; width: 100%; height: auto; object-fit: contain; transform-origin: center bottom; animation: mascot-float 6s ease-in-out 750ms infinite; }
 .campaign-art { transition: transform 500ms cubic-bezier(.16, 1, .3, 1); }
 .campaign-motion, .campaign-spark { transform-box: fill-box; transform-origin: center; }
 .campaign-bloom { animation: campaign-sway 7s ease-in-out infinite; }
@@ -136,7 +135,8 @@
 .hero.hero-burst .campaign-spark { transform: rotate(35deg) scale(1.12); }
 .hero.is-paused .campaign-motion { animation-play-state: paused; }
 @keyframes campaign-sway { 50% { transform: translateY(-9px) rotate(4deg); } }
-@keyframes illustration-float { 50% { transform: translateY(-8px) rotate(1.5deg); } }
+@keyframes mascot-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes mascot-float { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
 
 .prize { background: #fff; }
 .prize-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); align-items: center; gap: 64px; }
@@ -183,7 +183,7 @@
 .site-header .header-contact,
 .hero .button-primary,
 .audience .button-primary {
-  background: linear-gradient(110deg, #7656dd, #00865d);
+  background: linear-gradient(110deg, #8152eb 0%, #0eb982 100%);
   background-size: 100% 100%;
   background-position: left center;
   color: #fff;
@@ -192,8 +192,8 @@
 .site-header .header-contact:hover,
 .hero .button-primary:hover,
 .audience .button-primary:hover {
-  background-image: linear-gradient(110deg, #7656dd, #00865d);
-  background-color: #00865d;
+  background-image: linear-gradient(110deg, #8152eb 0%, #0eb982 100%);
+  background-color: #0eb982;
   background-size: 100% 100%;
   background-position: right center;
   box-shadow: 0 10px 22px #35206724;
@@ -202,7 +202,7 @@
 .button span, .venue-map-link svg { transition: transform 250ms cubic-bezier(.16, 1, .3, 1); }
 .campaign-art { pointer-events: auto; }
 .campaign-art svg, .prize-art svg { transition: transform 450ms cubic-bezier(.16, 1, .3, 1), filter 350ms ease; transform-origin: 50% 70%; }
-.campaign-trophy-image { transition: filter 350ms ease; }
+.hero-mascot-image { transition: filter 350ms ease; }
 .partner-brand > img, .partner-brand .club-logo { transition: transform 300ms cubic-bezier(.16, 1, .3, 1); }
 .faq summary { transition: color 180ms ease; }
 .faq summary span { transition: transform 300ms cubic-bezier(.16, 1, .3, 1), background-color 200ms ease; }
@@ -213,7 +213,7 @@ body.motion-ready .motion-card.motion-visible { transition: opacity 650ms ease, 
   body.motion-ready .motion-card.motion-visible:not(.venue-panel):hover { transform: translateY(-6px); box-shadow: 0 16px 28px #25106722; }
   .button:hover span, .button:focus-visible span, .venue-map-link:hover svg { transform: translate(3px, -3px); }
   .campaign-art-right:hover svg { transform: rotate(-4deg) scale(1.035); }
-  .campaign-trophy:hover .campaign-trophy-image { filter: drop-shadow(0 12px 10px #25106726); }
+  .campaign-mascot:hover .hero-mascot-image { filter: drop-shadow(0 12px 10px #25106726); }
   .prize-art:hover svg { transform: translateY(-5px) rotate(-4deg); filter: drop-shadow(0 12px 10px #25106720); }
   .partner-brand:hover > img, .partner-brand:hover .club-logo { transform: translateY(-4px) scale(1.035); }
   .faq summary:hover { color: var(--purple); }
@@ -244,7 +244,7 @@ body.motion-ready .motion-card.motion-visible { transition: opacity 650ms ease, 
   .campaign-art { max-width: 185px; }
   .campaign-art-left { grid-column: 1; grid-row: 2; justify-self: end; }
   .campaign-art-right { grid-column: 2; grid-row: 2; justify-self: start; }
-  .campaign-art.campaign-trophy { width: 100%; max-width: 200px; }
+  .campaign-art.campaign-mascot { width: 100%; max-width: 200px; }
 }
 @media (max-width: 760px) {
   .audience-passes.is-auto-carousel { position: relative; padding-inline: var(--pass-edge, 20px); scroll-behavior: auto; overflow-anchor: none; scrollbar-width: none; }
@@ -263,7 +263,7 @@ body.motion-ready .motion-card.motion-visible { transition: opacity 650ms ease, 
   .venue-map { height: 210px; }
   .hero .button-primary { min-height: 56px; font-size: 16px; }
   .campaign-art { width: min(100%, 160px); }
-  .campaign-art.campaign-trophy { max-width: 175px; }
+  .campaign-art.campaign-mascot { max-width: 175px; }
   .prize-grid { grid-template-columns: 1fr; gap: 28px; }
   .prize h2 { font-size: clamp(40px, 9vw, 54px); }
   .prize-copy p { font-size: 19px; }
@@ -275,11 +275,22 @@ body.motion-ready .motion-card.motion-visible { transition: opacity 650ms ease, 
 }
 @media (prefers-reduced-motion: reduce) {
   .faq details[open] > p { animation: none; }
-  .button span, .venue-map-link svg, .campaign-art svg, .prize-art svg, .campaign-trophy-image, .partner-brand > img, .partner-brand .club-logo, .faq summary span { transition: none; }
+  .button span, .venue-map-link svg, .campaign-art svg, .prize-art svg, .hero-mascot-image, .partner-brand > img, .partner-brand .club-logo, .faq summary span { transition: none; }
   body.motion-ready .motion-card.motion-visible:not(.venue-panel):hover, .button:hover span, .button:focus-visible span, .venue-map-link:hover svg, .campaign-art-right:hover svg, .prize-art:hover svg, .partner-brand:hover > img, .partner-brand:hover .club-logo { transform: none; }
   .site-header .header-contact, .hero .button-primary, .audience .button-primary { transition: none; }
   .site-header .site-nav > a::after { transition: none; }
   .campaign-motion { animation: none; }
+  .campaign-mascot { animation: none; }
   .campaign-art, .campaign-spark { transform: none; transition: none; }
   .hero.hero-burst .campaign-spark { transform: none; }
 }
+.campaign-mascot { position: relative; isolation: isolate; }
+.hero-mascot-image { position: relative; z-index: 1; }
+.mascot-sparkle { position: absolute; z-index: 2; display: block; width: 24px; aspect-ratio: 1; clip-path: polygon(50% 0, 61% 37%, 100% 50%, 61% 63%, 50% 100%, 39% 63%, 0 50%, 39% 37%); background: #00bf63; filter: drop-shadow(0 3px 4px #25106730); animation: mascot-twinkle 3.8s ease-in-out infinite; }
+.mascot-star-left { left: -4%; top: 29%; }
+.mascot-star-right { right: -3%; top: 57%; width: 18px; background: #b4ee00; animation-delay: -1.9s; }
+.mascot-dot { position: absolute; z-index: 2; width: 9px; height: 9px; border-radius: 50%; background: #b4ee00; }
+.mascot-dot-top { top: 15%; right: 18%; }
+.mascot-dot-bottom { left: 22%; bottom: 10%; width: 7px; height: 7px; background: #00bf63; }
+@keyframes mascot-twinkle { 0%, 100% { opacity: .82; transform: scale(.92) rotate(0); } 50% { opacity: 1; transform: scale(1.08) rotate(18deg); } }
+@media (prefers-reduced-motion: reduce) { .mascot-sparkle { animation: none; } }

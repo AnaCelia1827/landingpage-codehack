@@ -27,21 +27,6 @@ const hero = document.querySelector('.hero');
 const finePointer = window.matchMedia('(pointer: fine)');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-document.querySelectorAll('.faq details').forEach((details) => {
-  let openedOnHover = false;
-  details.addEventListener('pointerenter', (event) => {
-    if (event.pointerType !== 'mouse' || details.open) return;
-    openedOnHover = true;
-    details.open = true;
-  });
-  details.addEventListener('pointerleave', (event) => {
-    if (event.pointerType !== 'mouse' || !openedOnHover) return;
-    if (!details.matches(':focus-within')) details.open = false;
-    openedOnHover = false;
-  });
-  details.querySelector('summary').addEventListener('click', () => { openedOnHover = false; });
-});
-
 const countdown = document.querySelector('.hero-countdown');
 if (countdown) {
   // This preview deliberately uses a fictional deadline, independent of the event date.

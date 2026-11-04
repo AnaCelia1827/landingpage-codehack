@@ -62,7 +62,7 @@ Se uma alteração visual não aparecer, use **Ctrl + F5** para atualizar sem o 
 
 - **Menu:** navegação resumida no computador e menu expansível no celular.
 - **Crachás:** passagem automática em telas de até 760 px, com rolagem manual e pausa durante a interação. A reprodução respeita a preferência de reduzir movimentos e para quando a faixa sai da tela.
-- **Perguntas frequentes:** abrem ao passar o mouse e também funcionam por clique, toque e teclado.
+- **Perguntas frequentes:** abrem quando a pessoa ativa a pergunta por clique, toque ou teclado.
 - **Localização:** mapa incorporado do Inteli e link para abrir a rota no Google Maps.
 - **Inscrições:** os botões “Quero participar” abrem a pergunta sobre inscrições. Ainda não há formulário de inscrição integrado.
 
